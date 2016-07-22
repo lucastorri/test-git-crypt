@@ -17,7 +17,7 @@ readonly env_keys_file="configs/$system/$environment"
 
 readonly templates_source="templates/$system"
 
-readonly rendered_output="rendered/$system"
+readonly rendered_output="rendered/$system-$environment"
 
 mkdir -p "$rendered_output"
 
