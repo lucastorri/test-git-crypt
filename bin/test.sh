@@ -2,16 +2,15 @@
 
 set -u
 
-cd `dirname "$0"`/..
+cd "$(dirname "$0")/.."
 
-failed=false
+exit_code=0
 
 for system in `ls -1 templates`; do
   for environment in `ls -1 "configs/$system" | grep -v default`; do
     echo "Testing $system:$environment"
-    ./bin/render.sh "$system" "$environment" || failed=true
-    echo
+    ./bin/render.sh "$system" "$environment" && echo 'OK' || exit_code=1
   done
 done
 
-$failed && exit 1
+exit $exit_code

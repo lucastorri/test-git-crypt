@@ -2,7 +2,7 @@
 
 set -ue
 
-cd `dirname "$0"`/..
+cd "$(dirname "$0")/.."
 
 render-template() {
   local template_file="$1"
